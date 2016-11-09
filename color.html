@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+
+<div><h1> game of what my color</h1></div>
+
+<div><p> What is my favorite color?</p></div>
+
+
+
+
+
+<head>
+
+
+    <style>
+        div {
+            border: 2px solid #7ddef7;
+            padding: 10px 40px;
+            background: #17ffe4;
+            width: 300px;
+            border-radius: 25px;
+        }
+        html {
+            background-color: #76fcff;
+        }
+
+    </style>
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+        var ComputerChoice;
+        var colors;
+
+        function pickComputerColor() {
+            //This function gets called ONLY when the page first loads
+            //This function allows the computer to create the array and
+            //randomly choose a color from it
+            //alert("Page is loaded");
+
+            colors = ["blue","black","pink","green","purple","orange","red","white","yellow"];
+            //Replace "0" below with a random function call
+            ComputerChoice = colors[Math.floor(Math.random() * 8)];
+
+        ////   alert("Computer choice: " + ComputerChoice);
+
+            //Math.floor(Math.random() * 8);
+
+        }
+
+        function getIndex() {
+
+            //alert("Compare user selection in the drop down to the computer choice");
+
+            //1. determine which color the user chose from the drop down
+            var userChoice = document.getElementById("mySelect").value;
+
+            //2. compare to ComputerChoice
+         /////   alert(ComputerChoice);
+            alert(userChoice);
+            //Are ComputerChoice and userChoice equal (==)
+            //Or is one greater than the other?
+
+            if (colors.indexOf(userChoice) == -1) {
+                //invalid choice
+            }
+            else {
+                if (userChoice == ComputerChoice) {
+                    //('the answer is corrcet')
+
+                    alert("Correct answer");
+
+                    myBody=document.getElementsByTagName("body")[0];
+
+                    myBody.style.background=ComputerChoice ;
+
+
+                }
+                else if (userChoice < ComputerChoice){
+                    //('the answer is wrong')
+
+                    alert("userChoice is lower  try again please!");
+                }
+                else if (userChoice > ComputerChoice){
+                    // ('the answer is wrong')
+
+                    alert("userChoice is highertry again please !");
+                }
+
+            }
+
+
+
+
+           // Assume your text input is called "output" (create in HTML)
+            var textOut = document.getElementById("output");
+
+            //Use the value property of textOut to display a message
+
+
+
+        }
+        //var TextOut = document.getElementById("ComputerChoice");
+    </script>
+</head>
+<body onload="pickComputerColor()">
+
+
+
+<form method="get">
+   <div> Select your favorite colors:
+    <select id="mySelect">
+        <option>blue</option>
+        <option>white</option>
+        <option>green</option>
+        <option>red</option>
+        <option>black</option>
+        <option>pink</option>
+        <option>orange</option>
+        <option>purple</option>
+    </select>
+    <br><br>
+    <input type="button" onclick="getIndex()"
+           value="Display the index of the selected option"></div>
+</form>
+
+<p id="demo"></p>
+
+
+</body>
+</html>
+
